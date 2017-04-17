@@ -28,4 +28,8 @@ Run **PHPSpec** test suites (configuration in phpspec.yml)
 $ vendor/bin/phpspec run
 ```
 
+Run **PHPUnit** tests (configuration in phpunit.xml)
+```
+$ vendor/bin/phpspec run
+```
 
