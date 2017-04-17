@@ -1,0 +1,30 @@
+{
+    "name": "ekkinox/kata-books",
+    "description": "Code kata - Potter bookstore",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jonathan VUILLEMIN",
+            "email": "ekkinox@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ekkinox\\KataBooks\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ekkinox\\KataBooks\\Test\\": "test/"
+        }
+    },
+    "require": {
+        "symfony/console": "^3.2"
+    },
+    "require-dev": {
+        "behat/behat": "^3.3",
+        "phpunit/phpunit": "^5.0",
+        "phpspec/phpspec": "^3.2"
+    }
+}
