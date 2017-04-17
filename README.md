@@ -30,6 +30,6 @@ $ vendor/bin/phpspec run
 
 Run **PHPUnit** tests (configuration in phpunit.xml)
 ```
-$ vendor/bin/phpspec run
+$ vendor/bin/phpunit
 ```
 
