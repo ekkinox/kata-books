@@ -16,19 +16,19 @@ This implementation was made in BDD approach, using together:
 $ composer install
 ```
 
-## Tests Suite
+## Tests
 
-Run **Behat** test suites (configuration in behat.yml)
+**Behat** test suites (configuration in behat.yml)
 ```
 $ vendor/bin/behat
 ```
 
-Run **PHPSpec** test suites (configuration in phpspec.yml)
+**PHPSpec** test suites (configuration in phpspec.yml)
 ```
 $ vendor/bin/phpspec run
 ```
 
-Run **PHPUnit** tests (configuration in phpunit.xml)
+**PHPUnit** tests (configuration in phpunit.xml)
 ```
 $ vendor/bin/phpunit
 ```

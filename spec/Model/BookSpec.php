@@ -4,7 +4,6 @@ namespace spec\Ekkinox\KataBooks\Model;
 
 use Ekkinox\KataBooks\Model\Book;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class BookSpec extends ObjectBehavior
 {

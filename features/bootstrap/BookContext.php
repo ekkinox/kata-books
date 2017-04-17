@@ -1,14 +1,12 @@
 <?php
 
 use Behat\Behat\Context\Context;
-use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\TableNode;
 use Ekkinox\KataBooks\Model\Book;
 
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context
+class BookContext implements Context
 {
     /**
      * @var Book
