@@ -1,6 +1,6 @@
 Feature: Catalog
   In order to sell some products
-  As a customer
+  As a bookseller
   I need to be able to add, remove products to the catalog
 
   Scenario: Adding a product to the catalog

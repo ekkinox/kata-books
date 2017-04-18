@@ -42,8 +42,7 @@ class CatalogSpec extends ObjectBehavior
 
     function it_can_remove_a_product()
     {
-        $book = new Book();
-        $book->setName('book1');
+        $book = (new Book())->setName('name')->setPrice(1);
 
         $this->getProducts()->shouldHaveCount(0);
 
@@ -51,7 +50,7 @@ class CatalogSpec extends ObjectBehavior
 
         $this->getProducts()->shouldHaveCount(1);
 
-        $this->removeProduct('book1')->shouldReturn($this);
+        $this->removeProduct('name')->shouldReturn($this);
 
         $this->getProducts()->shouldHaveCount(0);
     }

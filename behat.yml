@@ -6,3 +6,4 @@ default:
             contexts:
                 - BookContext
                 - CatalogContext
+                - CartContext
