@@ -5,7 +5,7 @@ namespace Ekkinox\KataBooks\Model;
 /**
  * @package Ekkinox\KataBooks\Model
  */
-class Catalog
+class Catalog implements CatalogInterface
 {
     /**
      * @var ProductInterface[]
@@ -33,9 +33,7 @@ class Catalog
     }
 
     /**
-     * @param string $name
-     *
-     * @return ProductInterface|null
+     * @inheritdoc
      */
     public function getProduct(string $name): ?ProductInterface
     {

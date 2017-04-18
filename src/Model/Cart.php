@@ -8,7 +8,7 @@ namespace Ekkinox\KataBooks\Model;
 class Cart
 {
     /**
-     * @var Catalog
+     * @var CatalogInterface
      */
     private $catalog;
 
@@ -18,9 +18,9 @@ class Cart
     private $items;
 
     /**
-     * @param Catalog $catalog
+     * @param CatalogInterface $catalog
      */
-    public function __construct(Catalog $catalog)
+    public function __construct(CatalogInterface $catalog)
     {
         $this->catalog = $catalog;
         $this->items   = [];

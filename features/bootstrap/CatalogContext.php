@@ -80,6 +80,6 @@ class CatalogContext implements Context
      */
     public function theCatalogShouldContainAProductNamed($name)
     {
-        PHPUnit_Framework_Assert::assertNotEmpty($this->catalog->getProduct($name));
+        PHPUnit_Framework_Assert::assertNotNull($this->catalog->getProduct($name));
     }
 }
