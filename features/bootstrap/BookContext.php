@@ -26,60 +26,6 @@ class BookContext implements Context
     }
 
     /**
-     * @Given there is no price set to the book
-     */
-    public function thereIsNoPriceSetToTheBook()
-    {
-        PHPUnit_Framework_Assert::assertNull($this->book->getPrice());
-    }
-
-    /**
-     * @Given there is no price currency set to the book
-     */
-    public function thereIsNoPriceCurrencySetToTheBook()
-    {
-        PHPUnit_Framework_Assert::assertNull($this->book->getPriceCurrency());
-    }
-
-    /**
-     * @When I set the price to :price
-     */
-    public function iSetThePriceTo($price)
-    {
-        $this->book->setPrice($price);
-    }
-
-    /**
-     * @When I set the price currency to :currency
-     */
-    public function iSetThePriceCurrencyTo($currency)
-    {
-        $this->book->setPriceCurrency($currency);
-    }
-
-    /**
-     * @Then the book price should be :price
-     */
-    public function theBookPriceShouldBe($price)
-    {
-        PHPUnit_Framework_Assert::assertEquals(
-            $price,
-            $this->book->getPrice()
-        );
-    }
-
-    /**
-     * @Then the book price currency should be :currency
-     */
-    public function theBookPriceCurrencyShouldBe($currency)
-    {
-        PHPUnit_Framework_Assert::assertEquals(
-            $currency,
-            $this->book->getPriceCurrency()
-        );
-    }
-
-    /**
      * @Given there is no name set to the book
      */
     public function thereIsNoNameSetToTheBook()
@@ -103,6 +49,34 @@ class BookContext implements Context
         PHPUnit_Framework_Assert::assertEquals(
             $name,
             $this->book->getName()
+        );
+    }
+
+    /**
+     * @Given there is no price set to the book
+     */
+    public function thereIsNoPriceSetToTheBook()
+    {
+        PHPUnit_Framework_Assert::assertNull($this->book->getPrice());
+    }
+
+
+    /**
+     * @When I set the price to :price
+     */
+    public function iSetThePriceTo($price)
+    {
+        $this->book->setPrice($price);
+    }
+
+    /**
+     * @Then the book price should be :price
+     */
+    public function theBookPriceShouldBe($price)
+    {
+        PHPUnit_Framework_Assert::assertEquals(
+            $price,
+            $this->book->getPrice()
         );
     }
 }

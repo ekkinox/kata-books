@@ -5,65 +5,20 @@ namespace Ekkinox\KataBooks\Model;
 /**
  * @package Ekkinox\KataBooks\Model
  */
-class Book
+class Book implements ProductInterface
 {
-    /**
-     * @var float
-     */
-    private $price;
-
-    /**
-     * @var string
-     */
-    private $priceCurrency;
-
     /**
      * @var string
      */
     private $name;
 
     /**
-     * @return float
+     * @var int
      */
-    public function getPrice(): ?float
-    {
-        return $this->price;
-    }
+    private $price;
 
     /**
-     * @param float $price
-     *
-     * @return Book
-     */
-    public function setPrice(float $price): self
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPriceCurrency(): ?string
-    {
-        return $this->priceCurrency;
-    }
-
-    /**
-     * @param string $priceCurrency
-     *
-     * @return Book
-     */
-    public function setPriceCurrency($priceCurrency): self
-    {
-        $this->priceCurrency = $priceCurrency;
-
-        return $this;
-    }
-
-    /**
-     * @return string
+     * @inheritdoc
      */
     public function getName(): ?string
     {
@@ -78,6 +33,26 @@ class Book
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param int $price
+     *
+     * @return Book
+     */
+    public function setPrice(int $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }
