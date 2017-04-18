@@ -4,6 +4,7 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Ekkinox\KataBooks\Model\Book;
+use Ekkinox\KataBooks\Model\Cart;
 use Ekkinox\KataBooks\Model\Catalog;
 
 /**
@@ -17,6 +18,11 @@ class CartContext implements Context
     private $catalog;
 
     /**
+     * @var Cart
+     */
+    private $cart;
+
+    /**
      * Initializes context.
      *
      * Every scenario gets its own context instance.
@@ -26,6 +32,7 @@ class CartContext implements Context
     public function __construct()
     {
         $this->catalog = new Catalog();
+        $this->cart    = new Cart($this->catalog);
     }
 
     /**
@@ -45,70 +52,82 @@ class CartContext implements Context
      */
     public function thereIsNoProductsInTheCart()
     {
-        throw new PendingException();
+        PHPUnit_Framework_Assert::assertEquals(
+            0,
+            $this->cart->getProductsTotalQuantity()
+        );
+
+        PHPUnit_Framework_Assert::assertEquals(
+            0,
+            $this->cart->getProductsDistinctQuantity()
+        );
     }
 
     /**
-     * @When I add :arg2 products named :arg1
+     * @When I add :quantity products named :name
      */
-    public function iAddProductsNamed($arg1, $arg2)
+    public function iAddNamedProducts($quantity, $name)
     {
-        throw new PendingException();
+        $this->cart->addProduct($name, $quantity);
     }
 
     /**
-     * @Then the cart should contain :arg1 distinct products
+     * @Then the cart should contain :quantity distinct products
      */
-    public function theCartShouldContainDistinctProducts($arg1)
+    public function theCartShouldContainDistinctProducts($quantity)
     {
-        throw new PendingException();
+        PHPUnit_Framework_Assert::assertEquals(
+            intval($quantity),
+            $this->cart->getProductsDistinctQuantity()
+        );
     }
 
     /**
-     * @Then the cart should contain :arg1 total products
+     * @Then the cart should contain :quantity total products
      */
-    public function theCartShouldContainTotalProducts($arg1)
+    public function theCartShouldContainTotalProducts($quantity)
     {
-        throw new PendingException();
+        PHPUnit_Framework_Assert::assertEquals(
+            intval($quantity),
+            $this->cart->getProductsTotalQuantity()
+        );
     }
 
     /**
-     * @Then the cart total price should be :arg1
+     * @Then the cart total price should be :totalPrice
      */
-    public function theCartTotalPriceShouldBe($arg1)
+    public function theCartTotalPriceShouldBe($totalPrice)
     {
-        throw new PendingException();
+        PHPUnit_Framework_Assert::assertEquals(
+            intval($totalPrice),
+            $this->cart->getTotalPrice()
+        );
     }
 
     /**
-     * @Given there is no product in the cart
+     * @Then the cart should contain :quantity products named :name
      */
-    public function thereIsNoProductInTheCart()
+    public function theCartShouldContainProductsNamed($quantity, $name)
     {
-        throw new PendingException();
+        PHPUnit_Framework_Assert::assertEquals(
+            intval($quantity),
+            $this->cart->getProductQuantity($name)
+        );
     }
 
     /**
-     * @Then the cart should contain :arg2 products named :arg1
+     * @Given I already added :quantity products to the cart named :name
      */
-    public function theCartShouldContainProductsNamed($arg1, $arg2)
+    public function iAlreadyAddedProductsToTheCartNamed($quantity, $name)
     {
-        throw new PendingException();
-    }
-
-    /**
-     * @Given I already added :arg2 products to the cart named :arg1
-     */
-    public function iAlreadyAddedProductsToTheCartNamed($arg1, $arg2)
-    {
-        throw new PendingException();
+        $this->cart->addProduct($name, $quantity);
     }
 
     /**
      * @When I remove :arg2 products named :arg1 from the cart
      */
-    public function iRemoveProductsNamedFromTheCart($arg1, $arg2)
+    public function iRemoveProductsNamedFromTheCart($quantity, $name)
     {
-        throw new PendingException();
+        $this->cart->removeProduct($name, $quantity);
     }
 }

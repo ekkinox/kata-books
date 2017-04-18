@@ -25,7 +25,7 @@ Feature: Cart
     Then the cart should contain 2 total products
 
   Scenario: Adding different products to the cart
-    Given there is no product in the cart
+    Given there is no products in the cart
     When I add 1 products named "book1"
     And I add 1 products named "book2"
     And I add 1 products named "book3"
@@ -37,7 +37,7 @@ Feature: Cart
     And the cart total price should be 27
 
   Scenario: Adding several different products to the cart
-    Given there is no product in the cart
+    Given there is no products in the cart
     When I add 1 products named "book1"
     And I add 2 products named "book2"
     And I add 3 products named "book3"
