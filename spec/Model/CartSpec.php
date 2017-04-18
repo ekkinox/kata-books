@@ -18,6 +18,10 @@ class CartSpec extends ObjectBehavior
             ->addProduct((new Book())->setName('book3')->setPrice(10));
 
         $this->beConstructedWith($catalog);
+
+        $this->addProduct('book1', 1)->shouldReturn($this);
+        $this->addProduct('book2', 2)->shouldReturn($this);
+        $this->addProduct('book3', 3)->shouldReturn($this);
     }
 
     function it_is_initializable()
@@ -27,18 +31,12 @@ class CartSpec extends ObjectBehavior
 
     function it_add_products()
     {
-        $this->addProduct('book1', 1)->shouldReturn($this);
-        $this->addProduct('book2', 2)->shouldReturn($this);
-        $this->addProduct('book3', 3)->shouldReturn($this);
         $this->getProductsTotalQuantity()->shouldReturn(6);
         $this->getProductsDistinctQuantity()->shouldReturn(3);
     }
 
     function it_remove_products()
     {
-        $this->addProduct('book1', 1)->shouldReturn($this);
-        $this->addProduct('book2', 2)->shouldReturn($this);
-        $this->addProduct('book3', 3)->shouldReturn($this);
         $this->getProductsTotalQuantity()->shouldReturn(6);
         $this->getProductsDistinctQuantity()->shouldReturn(3);
         $this->removeProduct('book3', 1)->shouldReturn($this);
@@ -53,9 +51,6 @@ class CartSpec extends ObjectBehavior
 
     function it_get_a_product_quantity()
     {
-        $this->addProduct('book1', 1)->shouldReturn($this);
-        $this->addProduct('book2', 2)->shouldReturn($this);
-        $this->addProduct('book3', 3)->shouldReturn($this);
         $this->getProductQuantity('book1')->shouldReturn(1);
         $this->getProductQuantity('book2')->shouldReturn(2);
         $this->getProductQuantity('book3')->shouldReturn(3);
@@ -63,9 +58,6 @@ class CartSpec extends ObjectBehavior
 
     function it_get_total_price()
     {
-        $this->addProduct('book1', 1)->shouldReturn($this);
-        $this->addProduct('book2', 2)->shouldReturn($this);
-        $this->addProduct('book3', 3)->shouldReturn($this);
         $this->getTotalPrice()->shouldReturn(56);
     }
 }
