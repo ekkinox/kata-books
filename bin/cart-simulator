@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Ekkinox\KataBooks\Command\CartSimulatorCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+
+$application->add(new CartSimulatorCommand());
+$application->setDefaultCommand(CartSimulatorCommand::NAME, true);
+$application->run();
