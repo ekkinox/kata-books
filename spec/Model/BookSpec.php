@@ -3,6 +3,7 @@
 namespace spec\Ekkinox\KataBooks\Model;
 
 use Ekkinox\KataBooks\Model\Book;
+use Ekkinox\KataBooks\Model\ProductInterface;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -13,6 +14,7 @@ class BookSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType(Book::class);
+        $this->shouldBeAnInstanceOf(ProductInterface::class);
     }
 
     function it_gets_and_sets_a_name()

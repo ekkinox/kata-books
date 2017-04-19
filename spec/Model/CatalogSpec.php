@@ -4,6 +4,7 @@ namespace spec\Ekkinox\KataBooks\Model;
 
 use Ekkinox\KataBooks\Model\Book;
 use Ekkinox\KataBooks\Model\Catalog;
+use Ekkinox\KataBooks\Model\CatalogInterface;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -14,6 +15,7 @@ class CatalogSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType(Catalog::class);
+        $this->shouldBeAnInstanceOf(CatalogInterface::class);
     }
 
     function it_is_empty_after_construct()

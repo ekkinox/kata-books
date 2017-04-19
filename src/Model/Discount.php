@@ -5,8 +5,13 @@ namespace Ekkinox\KataBooks\Model;
 /**
  * @package Ekkinox\KataBooks\Model
  */
-class Discount
+class Discount implements DiscountInterface
 {
+    /**
+     * @var string
+     */
+    private $name;
+
     /**
      * @var int
      */
@@ -18,7 +23,27 @@ class Discount
     private $productCount;
 
     /**
-     * @return int|null
+     * @inheritdocing
+     */
+    public function getName(): string
+    {
+        return $this->name ?? uniqid('discount_');
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return Discount
+     */
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
      */
     public function getPercentage(): ?int
     {
@@ -38,7 +63,7 @@ class Discount
     }
 
     /**
-     * @return int|null
+     * @inheritdoc
      */
     public function getProductCount(): ?int
     {

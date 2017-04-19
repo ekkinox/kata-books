@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @package Ekkinox\KataBooks\Test\Model
  */
-class StubTest extends TestCase
+class BookTest extends TestCase
 {
     /**
      * @var Book
@@ -28,20 +28,20 @@ class StubTest extends TestCase
     /**
      * @covers \Ekkinox\KataBooks\Model\Book
      */
-    public function testPrice()
-    {
-        $this->subject->setPrice(8.0);
-
-        $this->assertEquals(8.0, $this->subject->getPrice());
-    }
-
-    /**
-     * @covers \Ekkinox\KataBooks\Model\Book
-     */
     public function testName()
     {
         $this->subject->setName('name');
 
         $this->assertEquals('name', $this->subject->getName());
+    }
+
+    /**
+     * @covers \Ekkinox\KataBooks\Model\Book
+     */
+    public function testPrice()
+    {
+        $this->subject->setPrice(8);
+
+        $this->assertEquals(8, $this->subject->getPrice());
     }
 }
