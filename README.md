@@ -23,6 +23,11 @@ Install PHP dependencies with provided composer container
 $ docker run --rm -v $(pwd):/app katabooks_kata_books_composer install
 ```
 
+Down & rebuild containers stack for vendor mounting (may need permissions fix for vendor/ folder)
+```
+$ docker-compose down &&  docker-compose up -d --build
+```
+
 ## Tests
 
 **Behat** test suites (configuration in behat.yml)
