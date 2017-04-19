@@ -5,9 +5,11 @@ namespace spec\Ekkinox\KataBooks\Model;
 use Ekkinox\KataBooks\Model\Book;
 use PhpSpec\ObjectBehavior;
 
+/**
+ * @package spec\Ekkinox\KataBooks\Model
+ */
 class BookSpec extends ObjectBehavior
 {
-
     function it_is_initializable()
     {
         $this->shouldHaveType(Book::class);

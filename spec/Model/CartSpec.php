@@ -7,6 +7,9 @@ use Ekkinox\KataBooks\Model\Cart;
 use Ekkinox\KataBooks\Model\Catalog;
 use PhpSpec\ObjectBehavior;
 
+/**
+ * @package spec\Ekkinox\KataBooks\Model
+ */
 class CartSpec extends ObjectBehavior
 {
     function let()

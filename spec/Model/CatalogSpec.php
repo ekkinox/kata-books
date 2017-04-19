@@ -6,6 +6,9 @@ use Ekkinox\KataBooks\Model\Book;
 use Ekkinox\KataBooks\Model\Catalog;
 use PhpSpec\ObjectBehavior;
 
+/**
+ * @package spec\Ekkinox\KataBooks\Model
+ */
 class CatalogSpec extends ObjectBehavior
 {
     function it_is_initializable()

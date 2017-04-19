@@ -7,3 +7,4 @@ default:
                 - BookContext
                 - CatalogContext
                 - CartContext
+                - DiscountContext
