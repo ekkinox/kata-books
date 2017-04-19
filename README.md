@@ -7,29 +7,38 @@ The code kata subject can be found [at this link](http://codingdojo.org/kata/Pot
 ## Behavior Driven Development
 
 This implementation was made in BDD approach, using together:
-- [Behat](http://behat.org/)
-- [PHPSpec](http://www.phpspec.net/)
+- [Behat](http://behat.org)
+- [PHPSpec](http://www.phpspec.net)
+- [PHPUnit](https://phpunit.de)
 
 ## Installation
 
+Build & up provided docker containers stack
 ```
-$ composer install
+$ docker-compose up -d
+```
+
+Install PHP dependencies with provided composer container
+```
+$ docker run --rm -v $(pwd):/app katabooks_kata_books_composer install
 ```
 
 ## Tests
 
 **Behat** test suites (configuration in behat.yml)
 ```
-$ vendor/bin/behat
+$ docker exec -it <phpfpm7.1_container_id> vendor/bin/behat
 ```
 
 **PHPSpec** test suites (configuration in phpspec.yml)
 ```
-$ vendor/bin/phpspec run
+$ docker exec -it <phpfpm7.1_container_id> vendor/bin/phpspec run
 ```
 
 **PHPUnit** tests (configuration in phpunit.xml)
 ```
-$ vendor/bin/phpunit
+$ docker exec -it <phpfpm7.1_container_id> vendor/bin/phpunit
 ```
+
+**Note:** You can retrieve the `<phpfpm7.1_container_id>` using `$ docker ps`
 

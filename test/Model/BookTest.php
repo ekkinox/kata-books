@@ -38,16 +38,6 @@ class StubTest extends TestCase
     /**
      * @covers \Ekkinox\KataBooks\Model\Book
      */
-    public function testPriceCurrency()
-    {
-        $this->subject->setPriceCurrency('EUR');
-
-        $this->assertEquals('EUR', $this->subject->getPriceCurrency());
-    }
-
-    /**
-     * @covers \Ekkinox\KataBooks\Model\Book
-     */
     public function testName()
     {
         $this->subject->setName('name');
